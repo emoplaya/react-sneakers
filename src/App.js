@@ -1,6 +1,10 @@
 import Card from './components/Card'
 import Header from './components/Header'
 import Drawer from './components/Drawer';
+import arr from './components/data';
+
+
+
 function App() {
   return (
     <div className="wrapper clear">
@@ -15,11 +19,9 @@ function App() {
           </div>
         </div>
       <div className="sneakers d-flex">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        
+        {arr.map((obj) => (
+          <Card title = {obj.title} price = {obj.price} imageUrl = {obj.imageUrl} onClick = {() => console.log(obj)} />
+        ))}
         </div>
       </div>
     </div>
