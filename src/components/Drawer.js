@@ -1,58 +1,21 @@
-function Drawer() {
+function Drawer({onCloseCart, items = []}) {
  return(
     <div className="overlay">
     <div className="drawer">
-          <h3 className="d-flex justify-between mb-30">Корзина<img className="removeBtn cu-p" src="/img/close.svg" alt="" /></h3>
+          <h3 className="d-flex justify-between mb-30">Корзина<img className="removeBtn cu-p" src="/img/close.svg" alt="" onClick={onCloseCart}/></h3>
           
           <div className="items">
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/1.jpg" alt="" />
+            {items.map((obj) => (
+              <div className="cartItem d-flex align-center mb-20">
+            <img className="mr-20" width={70} height={70} src={obj.imageUrl} alt="" />
             <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 rub.</b>
+              <p className="mb-5">{obj.title}</p>
+              <b>{obj.price} rub.</b>
             </div>
             <img className="removeBtn" src="/img/close.svg" alt="" />
           </div>
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/1.jpg" alt="" />
-            <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 rub.</b>
-            </div>
-            <img className="removeBtn" src="/img/close.svg" alt="" />
-          </div>
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/1.jpg" alt="" />
-            <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 rub.</b>
-            </div>
-            <img className="removeBtn" src="/img/close.svg" alt="" />
-          </div>
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/1.jpg" alt="" />
-            <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 rub.</b>
-            </div>
-            <img className="removeBtn" src="/img/close.svg" alt="" />
-          </div>
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/1.jpg" alt="" />
-            <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 rub.</b>
-            </div>
-            <img className="removeBtn" src="/img/close.svg" alt="" />
-          </div>
-          <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/1.jpg" alt="" />
-            <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 rub.</b>
-            </div>
-            <img className="removeBtn" src="/img/close.svg" alt="" />
-          </div>
+
+            ))}
           </div>
           <div className="cartTotalBlock">
           <ul>
