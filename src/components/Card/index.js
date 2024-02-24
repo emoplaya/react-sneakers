@@ -1,16 +1,22 @@
 import styles from './card.module.scss';
 import React from 'react';
-function Card ({title, imageUrl, price, onFavorite, onPlus}) {
+function Card ({id, title, imageUrl, price, onFavorite, onPlus, favorited = false}) {
   const [isAdded, setIsAdded] = React.useState(false);
+  const [isFavorite, setIsFavorite] = React.useState(favorited); //метод который будет говорить что мы нажали на иконку heart
 
   function onClickPlus () {
-    onPlus({title, imageUrl, price});
+    onPlus({id, title, imageUrl, price});
     setIsAdded(!isAdded);
   }
+
+function onClickFavorite () {
+  onFavorite({id, title, imageUrl, price})
+  setIsFavorite(!isFavorite);
+}
     return (
 <div className={styles.card}>
-          <div className={styles.favorite} onClick={onFavorite}>
-            <img src="/img/like_off.svg" alt="" />
+          <div className={styles.favorite} onClick={onClickFavorite}>
+            <img src={isFavorite ? '/img/like_on.svg' : '/img/like_off.svg'} alt="" />
           </div>
           <img width={133} height={112} src={imageUrl} alt="" />
           <h5>{title}</h5>
